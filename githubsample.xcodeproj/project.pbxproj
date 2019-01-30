@@ -8,8 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		1B00D525513CF81D818B39C2 /* Pods_githubsample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2683088C221595BC18C43B69 /* Pods_githubsample.framework */; };
+		75055D9E2202437800E19CB6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055D9D2202437800E19CB6 /* Repository.swift */; };
+		75055DA02202447000E19CB6 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055D9F2202447000E19CB6 /* Author.swift */; };
+		75055DA422024C0000E19CB6 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DA322024C0000E19CB6 /* ModelsTests.swift */; };
+		75055DA822024CB600E19CB6 /* repositories in Resources */ = {isa = PBXBuildFile; fileRef = 75055DA722024CB600E19CB6 /* repositories */; };
+		75055DAC22024D9100E19CB6 /* RepositoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DAB22024D9100E19CB6 /* RepositoriesViewController.swift */; };
+		75055DAF22024DCD00E19CB6 /* RepositoryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DAE22024DCD00E19CB6 /* RepositoryDetailViewController.swift */; };
+		75055DB222024E0100E19CB6 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DB122024E0100E19CB6 /* MainCoordinator.swift */; };
+		75055DB422024E0D00E19CB6 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DB322024E0D00E19CB6 /* Coordinator.swift */; };
+		75055DB822024E6700E19CB6 /* ViewConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DB722024E6700E19CB6 /* ViewConfiguration.swift */; };
+		75055DBC22024F0D00E19CB6 /* ViewModelConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DBB22024F0D00E19CB6 /* ViewModelConfigurable.swift */; };
+		75055DBE22024F7C00E19CB6 /* Layoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DBD22024F7C00E19CB6 /* Layoutable.swift */; };
+		75055DC12202559A00E19CB6 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DC02202559A00E19CB6 /* UIViewController+Extensions.swift */; };
+		75055DC32202561200E19CB6 /* RepositoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DC22202561200E19CB6 /* RepositoriesViewModel.swift */; };
+		75055DC5220256A400E19CB6 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DC4220256A400E19CB6 /* UIView+Extensions.swift */; };
+		75055DCA220258B600E19CB6 /* RepositoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DC9220258B600E19CB6 /* RepositoryTableViewCell.swift */; };
+		75055DCC220258E800E19CB6 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DCB220258E800E19CB6 /* UITableViewCell+Extensions.swift */; };
+		75055DD122025F7100E19CB6 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD022025F7100E19CB6 /* AuthorView.swift */; };
+		75055DD72202613200E19CB6 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD62202613200E19CB6 /* BadgeView.swift */; };
 		759BD8F8220207E500A7EA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8F7220207E500A7EA3D /* AppDelegate.swift */; };
-		759BD8FA220207E500A7EA3D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8F9220207E500A7EA3D /* ViewController.swift */; };
 		759BD8FD220207E500A7EA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759BD8FB220207E500A7EA3D /* Main.storyboard */; };
 		759BD900220207E500A7EA3D /* githubsample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8FE220207E500A7EA3D /* githubsample.xcdatamodeld */; };
 		759BD902220207E700A7EA3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 759BD901220207E700A7EA3D /* Assets.xcassets */; };
@@ -45,9 +62,26 @@
 		596A45472AFB45DCB9C018FE /* Pods-githubsampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-githubsampleUITests/Pods-githubsampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5CF76121F95DE7707BC48E83 /* Pods-githubsampleUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsampleUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-githubsampleUITests/Pods-githubsampleUITests.release.xcconfig"; sourceTree = "<group>"; };
 		5D066717FFAC51A84BFFBA96 /* Pods-githubsampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsampleTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-githubsampleTests/Pods-githubsampleTests.release.xcconfig"; sourceTree = "<group>"; };
+		75055D9D2202437800E19CB6 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		75055D9F2202447000E19CB6 /* Author.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Author.swift; sourceTree = "<group>"; };
+		75055DA322024C0000E19CB6 /* ModelsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsTests.swift; sourceTree = "<group>"; };
+		75055DA722024CB600E19CB6 /* repositories */ = {isa = PBXFileReference; lastKnownFileType = text; path = repositories; sourceTree = "<group>"; };
+		75055DAB22024D9100E19CB6 /* RepositoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewController.swift; sourceTree = "<group>"; };
+		75055DAE22024DCD00E19CB6 /* RepositoryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDetailViewController.swift; sourceTree = "<group>"; };
+		75055DB122024E0100E19CB6 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		75055DB322024E0D00E19CB6 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		75055DB722024E6700E19CB6 /* ViewConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewConfiguration.swift; sourceTree = "<group>"; };
+		75055DBB22024F0D00E19CB6 /* ViewModelConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelConfigurable.swift; sourceTree = "<group>"; };
+		75055DBD22024F7C00E19CB6 /* Layoutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layoutable.swift; sourceTree = "<group>"; };
+		75055DC02202559A00E19CB6 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		75055DC22202561200E19CB6 /* RepositoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesViewModel.swift; sourceTree = "<group>"; };
+		75055DC4220256A400E19CB6 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		75055DC9220258B600E19CB6 /* RepositoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryTableViewCell.swift; sourceTree = "<group>"; };
+		75055DCB220258E800E19CB6 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
+		75055DD022025F7100E19CB6 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
+		75055DD62202613200E19CB6 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		759BD8F4220207E500A7EA3D /* githubsample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubsample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759BD8F7220207E500A7EA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		759BD8F9220207E500A7EA3D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		759BD8FC220207E500A7EA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		759BD8FF220207E500A7EA3D /* githubsample.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = githubsample.xcdatamodel; sourceTree = "<group>"; };
 		759BD901220207E700A7EA3D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -114,6 +148,151 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		75055D9A2202432D00E19CB6 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				75055DC62202586500E19CB6 /* RepositoryCell */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		75055D9B2202433A00E19CB6 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				75055D9D2202437800E19CB6 /* Repository.swift */,
+				75055D9F2202447000E19CB6 /* Author.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		75055D9C2202434A00E19CB6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		75055DA922024D0200E19CB6 /* Mock */ = {
+			isa = PBXGroup;
+			children = (
+				75055DA722024CB600E19CB6 /* repositories */,
+			);
+			path = Mock;
+			sourceTree = "<group>";
+		};
+		75055DAA22024D6800E19CB6 /* RepositoriesViewController */ = {
+			isa = PBXGroup;
+			children = (
+				75055DAB22024D9100E19CB6 /* RepositoriesViewController.swift */,
+				75055DC22202561200E19CB6 /* RepositoriesViewModel.swift */,
+			);
+			path = RepositoriesViewController;
+			sourceTree = "<group>";
+		};
+		75055DAD22024D9F00E19CB6 /* RepositoryDetailViewController */ = {
+			isa = PBXGroup;
+			children = (
+				75055DAE22024DCD00E19CB6 /* RepositoryDetailViewController.swift */,
+			);
+			path = RepositoryDetailViewController;
+			sourceTree = "<group>";
+		};
+		75055DB022024DEE00E19CB6 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				75055DB522024E3000E19CB6 /* Protocols */,
+				75055DB122024E0100E19CB6 /* MainCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		75055DB522024E3000E19CB6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75055DB322024E0D00E19CB6 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75055DB622024E5700E19CB6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				75055DB722024E6700E19CB6 /* ViewConfiguration.swift */,
+				75055DBB22024F0D00E19CB6 /* ViewModelConfigurable.swift */,
+				75055DBD22024F7C00E19CB6 /* Layoutable.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		75055DBF2202557F00E19CB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75055DC02202559A00E19CB6 /* UIViewController+Extensions.swift */,
+				75055DC4220256A400E19CB6 /* UIView+Extensions.swift */,
+				75055DCB220258E800E19CB6 /* UITableViewCell+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		75055DC62202586500E19CB6 /* RepositoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				75055DC9220258B600E19CB6 /* RepositoryTableViewCell.swift */,
+			);
+			path = RepositoryCell;
+			sourceTree = "<group>";
+		};
+		75055DCE22025F3400E19CB6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				75055DD52202611F00E19CB6 /* BadgeView */,
+				75055DCF22025F3B00E19CB6 /* AuthorView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		75055DCF22025F3B00E19CB6 /* AuthorView */ = {
+			isa = PBXGroup;
+			children = (
+				75055DD022025F7100E19CB6 /* AuthorView.swift */,
+			);
+			path = AuthorView;
+			sourceTree = "<group>";
+		};
+		75055DD52202611F00E19CB6 /* BadgeView */ = {
+			isa = PBXGroup;
+			children = (
+				75055DD62202613200E19CB6 /* BadgeView.swift */,
+			);
+			path = BadgeView;
+			sourceTree = "<group>";
+		};
+		75065E342202200500C15581 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75055DB622024E5700E19CB6 /* View */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75065E352202200E00C15581 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				75055D9C2202434A00E19CB6 /* Models */,
+				75055D9B2202433A00E19CB6 /* Structs */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		75065E362202201500C15581 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				75055DAD22024D9F00E19CB6 /* RepositoryDetailViewController */,
+				75055DAA22024D6800E19CB6 /* RepositoriesViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		759BD8EB220207E500A7EA3D = {
 			isa = PBXGroup;
 			children = (
@@ -139,8 +318,14 @@
 		759BD8F6220207E500A7EA3D /* githubsample */ = {
 			isa = PBXGroup;
 			children = (
+				75055DCE22025F3400E19CB6 /* Views */,
+				75055DBF2202557F00E19CB6 /* Extensions */,
+				75055DB022024DEE00E19CB6 /* Coordinators */,
+				75055D9A2202432D00E19CB6 /* Cells */,
+				75065E362202201500C15581 /* ViewControllers */,
+				75065E352202200E00C15581 /* Entities */,
+				75065E342202200500C15581 /* Protocols */,
 				759BD8F7220207E500A7EA3D /* AppDelegate.swift */,
-				759BD8F9220207E500A7EA3D /* ViewController.swift */,
 				759BD8FB220207E500A7EA3D /* Main.storyboard */,
 				759BD901220207E700A7EA3D /* Assets.xcassets */,
 				759BD903220207E700A7EA3D /* LaunchScreen.storyboard */,
@@ -153,8 +338,10 @@
 		759BD90E220207E700A7EA3D /* githubsampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				75055DA922024D0200E19CB6 /* Mock */,
 				759BD90F220207E700A7EA3D /* githubsampleTests.swift */,
 				759BD911220207E700A7EA3D /* Info.plist */,
+				75055DA322024C0000E19CB6 /* ModelsTests.swift */,
 			);
 			path = githubsampleTests;
 			sourceTree = "<group>";
@@ -280,6 +467,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75055DA822024CB600E19CB6 /* repositories in Resources */,
 				759BD905220207E700A7EA3D /* LaunchScreen.storyboard in Resources */,
 				759BD902220207E700A7EA3D /* Assets.xcassets in Resources */,
 				759BD8FD220207E500A7EA3D /* Main.storyboard in Resources */,
@@ -462,9 +650,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75055DC5220256A400E19CB6 /* UIView+Extensions.swift in Sources */,
+				75055DB822024E6700E19CB6 /* ViewConfiguration.swift in Sources */,
+				75055DB422024E0D00E19CB6 /* Coordinator.swift in Sources */,
+				75055DCA220258B600E19CB6 /* RepositoryTableViewCell.swift in Sources */,
+				75055DA02202447000E19CB6 /* Author.swift in Sources */,
+				75055DB222024E0100E19CB6 /* MainCoordinator.swift in Sources */,
+				75055DD72202613200E19CB6 /* BadgeView.swift in Sources */,
+				75055DC12202559A00E19CB6 /* UIViewController+Extensions.swift in Sources */,
+				75055DAF22024DCD00E19CB6 /* RepositoryDetailViewController.swift in Sources */,
+				75055DAC22024D9100E19CB6 /* RepositoriesViewController.swift in Sources */,
+				75055DC32202561200E19CB6 /* RepositoriesViewModel.swift in Sources */,
 				759BD900220207E500A7EA3D /* githubsample.xcdatamodeld in Sources */,
-				759BD8FA220207E500A7EA3D /* ViewController.swift in Sources */,
+				75055DBC22024F0D00E19CB6 /* ViewModelConfigurable.swift in Sources */,
 				759BD8F8220207E500A7EA3D /* AppDelegate.swift in Sources */,
+				75055DBE22024F7C00E19CB6 /* Layoutable.swift in Sources */,
+				75055DD122025F7100E19CB6 /* AuthorView.swift in Sources */,
+				75055DCC220258E800E19CB6 /* UITableViewCell+Extensions.swift in Sources */,
+				75055D9E2202437800E19CB6 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +676,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				759BD910220207E700A7EA3D /* githubsampleTests.swift in Sources */,
+				75055DA422024C0000E19CB6 /* ModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
