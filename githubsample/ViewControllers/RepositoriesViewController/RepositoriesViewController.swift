@@ -10,8 +10,16 @@ import UIKit
 
 class RepositoriesViewController: UIViewController {
 
+    private lazy var refreshControl: UIRefreshControl = {
+        let control = UIRefreshControl(forAutoLayout: ())
+        control.addTarget(self, action: #selector(fetchRepositories), for: .valueChanged)
+        return control
+    }()
+    
     private lazy var repositoriesTableView: UITableView = {
         let tableView = UITableView(forAutoLayout: ())
+        tableView.refreshControl = refreshControl
+        tableView.tableFooterView = UIView()
         return tableView
     }()
     
@@ -21,15 +29,20 @@ class RepositoriesViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        repositoriesTableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.reuseIdentifier)
-        repositoriesTableView.estimatedRowHeight = 80
-        repositoriesTableView.rowHeight = UITableView.automaticDimension
-        repositoriesTableView.delegate = self
-        repositoriesTableView.dataSource = self
+        title = "Repositories"
+        
+        viewModel?.delegate = self
+        
+        setupRepositoriesTableView()
         
         buildViewHierarchy()
         setupConstraints()
         configureViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        fetchRepositories()
     }
     
     func setupConstraints() {
@@ -43,6 +56,15 @@ class RepositoriesViewController: UIViewController {
     func configureViews() {
         
     }
+    
+    @objc func fetchRepositories() {
+        
+        guard !(viewModel?.loading ?? true) else {
+            return
+        }
+        
+        viewModel?.fetchRepositories()
+    }
 }
 
 extension RepositoriesViewController: ViewModelConfigurable {
@@ -54,14 +76,17 @@ extension RepositoriesViewController: ViewModelConfigurable {
     }
     
     func update() {
-        self.repositoriesTableView.reloadData()
+        DispatchQueue.main.async {
+            self.repositoriesTableView.refreshControl?.endRefreshing()
+            self.repositoriesTableView.reloadData()
+        }
     }
 }
 
 extension RepositoriesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.repositories.count ?? 0
+        return viewModel?.repositories?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -70,14 +95,22 @@ extension RepositoriesViewController: UITableViewDataSource {
             return UITableViewCell(forAutoLayout: ())
         }
         
-        guard let repository = viewModel?.repositories[indexPath.row] else {
+        guard let repositories = viewModel?.repositories else {
             return cell
         }
         
+        let repository = repositories[indexPath.row]
         cell.titleLabel.text = repository.name
-        cell.descriptionLabel.text = "bla bla"
+        cell.descriptionLabel.text = repository.description
         cell.authorView.nameLabel.text = repository.owner.login
         cell.badgeView.textLabel.text = String(repository.stars)
+        
+        if let url = repository.owner.avatar {
+            cell.authorView.avatarImageView.loadImage(
+                from: url,
+                placeholder: UIImage(named: "ProfileIcon")
+            )
+        }
         
         return cell
     }
@@ -103,6 +136,14 @@ extension RepositoriesViewController: RepositoriesViewModelDelegate {
 
 /* We could use PureLayout library to make working with contraints a lot easier and less verbose */
 extension RepositoriesViewController {
+    
+    private func setupRepositoriesTableView() {
+        repositoriesTableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.reuseIdentifier)
+        repositoriesTableView.estimatedRowHeight = 80
+        repositoriesTableView.rowHeight = UITableView.automaticDimension
+        repositoriesTableView.delegate = self
+        repositoriesTableView.dataSource = self
+    }
     
     private func setupRepositoriesTableViewConstraints() {
         
@@ -146,7 +187,12 @@ extension RepositoriesViewController {
             constant: 0
         )
         
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, topConstraint])
+        NSLayoutConstraint.activate([
+            leftConstraint,
+            rightConstraint,
+            bottomConstraint,
+            topConstraint
+        ])
     }
     
 }

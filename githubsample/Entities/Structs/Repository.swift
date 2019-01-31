@@ -9,8 +9,9 @@
 import Foundation
 
 struct Repository {
-    let id: String
+    let id: Int
     let name: String
+    let description: String
     let stars: Int
     let owner: Author
 }
@@ -20,6 +21,7 @@ extension Repository: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case name
+        case description
         case stars = "stargazers_count"
         case owner
     }
@@ -28,6 +30,7 @@ extension Repository: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
         try container.encode(name, forKey: .name)
+        try container.encode(description, forKey: .description)
         try container.encode(stars, forKey: .stars)
     }
     
@@ -36,8 +39,9 @@ extension Repository: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.init(
-            id: try values.decode(String.self, forKey: .id),
+            id: try values.decode(Int.self, forKey: .id),
             name: try values.decode(String.self, forKey: .name),
+            description: try values.decode(String.self, forKey: .description),
             stars: try values.decode(Int.self, forKey: .stars),
             owner: try values.decode(Author.self, forKey: .owner)
         )

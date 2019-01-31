@@ -6,13 +6,6 @@ target 'githubsample' do
   use_frameworks!
 
   # Pods for githubsample
-  
-  def reactive_pods 
-    pod 'RxSwift'
-    pod 'RxCocoa'
-    pod 'RxDataSources'
-    pod 'RxOptional'
-  end
 
   def tests_pods
     pod 'Quick'

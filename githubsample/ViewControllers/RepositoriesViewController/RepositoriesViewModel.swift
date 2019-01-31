@@ -15,32 +15,39 @@ protocol RepositoriesViewModelDelegate {
 
 class RepositoriesViewModel {
     
-    private var loadedRepositories: [Repository] = [
-        Repository(
-            id: "bla",
-            name: "Alamofire",
-            stars: 123456,
-            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil)
-        ),
-        Repository(
-            id: "bla",
-            name: "Alamofire",
-            stars: 123456,
-            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil)
-        ),
-        Repository(
-            id: "bla",
-            name: "Alamofire",
-            stars: 123456,
-            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil)
-        ),
-    ]
+    private var loadedRepositories: [Repository]?
+    private var isLoading: Bool = false
     
-    var repositories: [Repository] {
+    var delegate: RepositoriesViewModelDelegate?
+    
+    var loading: Bool {
+        return isLoading
+    }
+    
+    var repositories: [Repository]? {
         return loadedRepositories
     }
     
     func fetchRepositories() {
+        
+        isLoading = true
+        RepositoriesService.shared.searchRepositories(from: "swift", sortedBy: "stars") { [weak self] (result) in
+            
+            guard let weakSelf = self else {
+                return
+            }
+            
+            switch(result){
+            case let .success(repositories):
+                weakSelf.loadedRepositories = repositories
+                weakSelf.delegate?.didFetchRepositories()
+                
+            case .failure(_):
+                weakSelf.loadedRepositories = nil
+            }
+            
+            weakSelf.isLoading = false
+        }
         
     }
     

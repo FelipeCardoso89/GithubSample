@@ -16,4 +16,6 @@ typealias VoidCompletionResult = ((VoidResult) -> Void)
 typealias ResponseResult = NetworkResult<NetworkResponse, ResponseNetworkError>
 typealias ResponseCompletionResult = ((ResponseResult) -> Void)
 
-
+//NetworkResponse
+typealias ResponseRepositoriesResult = NetworkResult<[Repository], ResponseNetworkError>
+typealias ResponseRepositoriesCompletionResult = ((ResponseRepositoriesResult) -> Void)

@@ -12,7 +12,6 @@ class AuthorView: UIView {
 
     lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(forAutoLayout: ())
-        imageView.image = UIImage(named: "ProfileIcon")
         imageView.contentMode = UIView.ContentMode.scaleAspectFit
         imageView.clipsToBounds = true
         return imageView

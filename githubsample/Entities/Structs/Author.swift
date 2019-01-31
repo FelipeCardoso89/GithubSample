@@ -10,7 +10,7 @@ import Foundation
 
 struct Author {
     
-    let id: String
+    let id: Int
     let login: String
     let avatar: URL?
 }
@@ -35,7 +35,7 @@ extension Author: Codable {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         
         self.init(
-            id: try values.decode(String.self, forKey: .id),
+            id: try values.decode(Int.self, forKey: .id),
             login: try values.decode(String.self, forKey: .login),
             avatar: try values.decodeIfPresent(URL.self, forKey: .avatar)
         )
