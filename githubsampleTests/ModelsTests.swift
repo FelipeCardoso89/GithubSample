@@ -28,22 +28,12 @@ class ModelsTests: QuickSpec {
                     guard
                         let path = Bundle(for: type(of: self)).path(forResource: "repositories", ofType: "json"),
                         let data = try? Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)
-                        else {
-                            return
-                    }
-                    
-                    guard let repositorySearch = try? JSONDecoder().decode(RepositorySearch.self, from: data) else {
-                        fail("Can not parse searchResult object")
+                    else {
                         return
                     }
                     
-                    guard let firstRepository = repositorySearch.repositories.first else {
-                        fail("Can not get first object")
-                        return
-                    }
-                    
-                    self.repositorySearch = repositorySearch
-                    self.firstRepository = firstRepository
+                    self.repositorySearch = try? JSONDecoder().decode(RepositorySearch.self, from: data)
+                    self.firstRepository = self.repositorySearch?.repositories.first
                 }
                 
                 
@@ -69,22 +59,33 @@ class ModelsTests: QuickSpec {
             
             context("Encode to json") {
                 
+                it("Can encode Author") {
+                    let author = Author(id: 1234, login: "author", avatar: nil)
+                    let authorEncode = try? JSONEncoder().encode(author)
+                    expect(authorEncode).toNot(beNil())
+                }
+                
+                it("Can encode Repository") {
+                    let author = Author(id: 1234, login: "author", avatar: nil)
+                    let repository = Repository(id: 1234, name: "My Repository", description: "My repo description", stars: 5678, owner: author)
+                    let repositoryEncode = try? JSONEncoder().encode(repository)
+                    expect(repositoryEncode).toNot(beNil())
+                }
+                
                 it("Can encode search repository object") {
                     
                     let author = Author(id: 1234, login: "author", avatar: nil)
                     let repository = Repository(id: 1234, name: "My Repository", description: "My repo description", stars: 5678, owner: author)
                     let repositorySearch = RepositorySearch(totalCounts: 1234, incompleteResults: false, repositories: [repository])
-                    
-                    guard let encoded = try? JSONEncoder().encode(repositorySearch) else {
-                        fail("Can not encode object")
-                        return
-                    }
-                    
+                    let encoded = try? JSONEncoder().encode(repositorySearch)
                     expect(encoded).toNot(beNil())
-                    
                 }
-                
             }
+        }
+        
+        describe("Can create Network Models") {
+        
+            
         }
     }
 }

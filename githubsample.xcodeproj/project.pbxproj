@@ -51,6 +51,7 @@
 		759BD905220207E700A7EA3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759BD903220207E700A7EA3D /* LaunchScreen.storyboard */; };
 		759BD91B220207E700A7EA3D /* githubsampleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD91A220207E700A7EA3D /* githubsampleUITests.swift */; };
 		75B8196822035CF7003C68B3 /* RepositoriesServiceable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B8196722035CF7003C68B3 /* RepositoriesServiceable.swift */; };
+		75B8196A220383FE003C68B3 /* NetworkEndpointTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75B81969220383FE003C68B3 /* NetworkEndpointTest.swift */; };
 		B466D7A2AB8847CC0E7CDE49 /* Pods_githubsampleTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45C8528BE75C3A70F359829D /* Pods_githubsampleTests.framework */; };
 		E755A2DA7FE0B8FDB45A038E /* Pods_githubsampleUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42FBDB0FE92EA822B844EEEE /* Pods_githubsampleUITests.framework */; };
 /* End PBXBuildFile section */
@@ -129,6 +130,7 @@
 		759BD91A220207E700A7EA3D /* githubsampleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = githubsampleUITests.swift; sourceTree = "<group>"; };
 		759BD91C220207E700A7EA3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75B8196722035CF7003C68B3 /* RepositoriesServiceable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesServiceable.swift; sourceTree = "<group>"; };
+		75B81969220383FE003C68B3 /* NetworkEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NetworkEndpointTest.swift; path = githubsampleTests/NetworkEndpointTest.swift; sourceTree = SOURCE_ROOT; };
 		7E187041E0DFBBE8FB6C4691 /* Pods-githubsample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsample.release.xcconfig"; path = "Pods/Target Support Files/Pods-githubsample/Pods-githubsample.release.xcconfig"; sourceTree = "<group>"; };
 		F9BBB74DB9351E96588DA1FC /* Pods-githubsample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-githubsample/Pods-githubsample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -532,6 +534,7 @@
 				75055DA922024D0200E19CB6 /* Mock */,
 				759BD911220207E700A7EA3D /* Info.plist */,
 				75055DA322024C0000E19CB6 /* ModelsTests.swift */,
+				75B81969220383FE003C68B3 /* NetworkEndpointTest.swift */,
 			);
 			path = githubsampleTests;
 			sourceTree = "<group>";
@@ -818,6 +821,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75055E0C22029D3C00E19CB6 /* MockedNetworkManager.swift in Sources */,
+				75B8196A220383FE003C68B3 /* NetworkEndpointTest.swift in Sources */,
 				75055DA422024C0000E19CB6 /* ModelsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
