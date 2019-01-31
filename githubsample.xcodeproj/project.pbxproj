@@ -27,6 +27,18 @@
 		75055DD122025F7100E19CB6 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD022025F7100E19CB6 /* AuthorView.swift */; };
 		75055DD72202613200E19CB6 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD62202613200E19CB6 /* BadgeView.swift */; };
 		75055DD922026AEE00E19CB6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD822026AEE00E19CB6 /* Reusable.swift */; };
+		75055DDD22027FDA00E19CB6 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DDC22027FDA00E19CB6 /* NetworkManager.swift */; };
+		75055DE02202802000E19CB6 /* NetworkingManageable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DDF2202802000E19CB6 /* NetworkingManageable.swift */; };
+		75055DE22202809500E19CB6 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DE12202809500E19CB6 /* NetworkEndpoint.swift */; };
+		75055DE5220280F000E19CB6 /* NetworkMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DE4220280F000E19CB6 /* NetworkMethod.swift */; };
+		75055DE72202810D00E19CB6 /* NetworkTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DE62202810D00E19CB6 /* NetworkTask.swift */; };
+		75055DEA2202815800E19CB6 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DE92202815800E19CB6 /* NetworkResult.swift */; };
+		75055DED2202817B00E19CB6 /* NetworkResultable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DEC2202817B00E19CB6 /* NetworkResultable.swift */; };
+		75055DEF220281E000E19CB6 /* NetworkResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DEE220281E000E19CB6 /* NetworkResponse.swift */; };
+		75055DF32202823100E19CB6 /* NetworkManagerAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DF22202823100E19CB6 /* NetworkManagerAliases.swift */; };
+		75055DF52202827A00E19CB6 /* ResponseNetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DF42202827A00E19CB6 /* ResponseNetworkError.swift */; };
+		75055DFA220282E100E19CB6 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DF9220282E100E19CB6 /* NetworkError.swift */; };
+		75055DFD2202837B00E19CB6 /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DFC2202837B00E19CB6 /* String+Extensions.swift */; };
 		759BD8F8220207E500A7EA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8F7220207E500A7EA3D /* AppDelegate.swift */; };
 		759BD8FD220207E500A7EA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759BD8FB220207E500A7EA3D /* Main.storyboard */; };
 		759BD900220207E500A7EA3D /* githubsample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8FE220207E500A7EA3D /* githubsample.xcdatamodeld */; };
@@ -82,6 +94,18 @@
 		75055DD022025F7100E19CB6 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		75055DD62202613200E19CB6 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
 		75055DD822026AEE00E19CB6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		75055DDC22027FDA00E19CB6 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		75055DDF2202802000E19CB6 /* NetworkingManageable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManageable.swift; sourceTree = "<group>"; };
+		75055DE12202809500E19CB6 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		75055DE4220280F000E19CB6 /* NetworkMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMethod.swift; sourceTree = "<group>"; };
+		75055DE62202810D00E19CB6 /* NetworkTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkTask.swift; sourceTree = "<group>"; };
+		75055DE92202815800E19CB6 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		75055DEC2202817B00E19CB6 /* NetworkResultable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResultable.swift; sourceTree = "<group>"; };
+		75055DEE220281E000E19CB6 /* NetworkResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResponse.swift; sourceTree = "<group>"; };
+		75055DF22202823100E19CB6 /* NetworkManagerAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerAliases.swift; sourceTree = "<group>"; };
+		75055DF42202827A00E19CB6 /* ResponseNetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseNetworkError.swift; sourceTree = "<group>"; };
+		75055DF9220282E100E19CB6 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		75055DFC2202837B00E19CB6 /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		759BD8F4220207E500A7EA3D /* githubsample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubsample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759BD8F7220207E500A7EA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759BD8FC220207E500A7EA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -270,6 +294,113 @@
 			path = BadgeView;
 			sourceTree = "<group>";
 		};
+		75055DDA22027E9A00E19CB6 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				75055DDB22027EA300E19CB6 /* Network */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		75055DDB22027EA300E19CB6 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				75055DF02202820200E19CB6 /* Utils */,
+				75055DE82202814600E19CB6 /* Result */,
+				75055DE3220280D500E19CB6 /* Entities */,
+				75055DDE22027FFF00E19CB6 /* Protocols */,
+				75055DDC22027FDA00E19CB6 /* NetworkManager.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		75055DDE22027FFF00E19CB6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75055DDF2202802000E19CB6 /* NetworkingManageable.swift */,
+				75055DE12202809500E19CB6 /* NetworkEndpoint.swift */,
+				75055DF9220282E100E19CB6 /* NetworkError.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75055DE3220280D500E19CB6 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				75055DF8220282A900E19CB6 /* Errors */,
+				75055DF72202829E00E19CB6 /* Structs */,
+				75055DF62202828C00E19CB6 /* Enums */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		75055DE82202814600E19CB6 /* Result */ = {
+			isa = PBXGroup;
+			children = (
+				75055DEB2202816700E19CB6 /* Protocols */,
+				75055DE92202815800E19CB6 /* NetworkResult.swift */,
+			);
+			path = Result;
+			sourceTree = "<group>";
+		};
+		75055DEB2202816700E19CB6 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				75055DEC2202817B00E19CB6 /* NetworkResultable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		75055DF02202820200E19CB6 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				75055DFB2202835600E19CB6 /* Extensions */,
+				75055DF12202821C00E19CB6 /* Aliases */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		75055DF12202821C00E19CB6 /* Aliases */ = {
+			isa = PBXGroup;
+			children = (
+				75055DF22202823100E19CB6 /* NetworkManagerAliases.swift */,
+			);
+			path = Aliases;
+			sourceTree = "<group>";
+		};
+		75055DF62202828C00E19CB6 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				75055DE4220280F000E19CB6 /* NetworkMethod.swift */,
+				75055DE62202810D00E19CB6 /* NetworkTask.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		75055DF72202829E00E19CB6 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				75055DEE220281E000E19CB6 /* NetworkResponse.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		75055DF8220282A900E19CB6 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				75055DF42202827A00E19CB6 /* ResponseNetworkError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		75055DFB2202835600E19CB6 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				75055DFC2202837B00E19CB6 /* String+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		75065E342202200500C15581 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +452,7 @@
 		759BD8F6220207E500A7EA3D /* githubsample */ = {
 			isa = PBXGroup;
 			children = (
+				75055DDA22027E9A00E19CB6 /* Core */,
 				75055DCE22025F3400E19CB6 /* Views */,
 				75055DBF2202557F00E19CB6 /* Extensions */,
 				75055DB022024DEE00E19CB6 /* Coordinators */,
@@ -654,24 +786,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				75055DC5220256A400E19CB6 /* UIView+Extensions.swift in Sources */,
+				75055DE72202810D00E19CB6 /* NetworkTask.swift in Sources */,
+				75055DEA2202815800E19CB6 /* NetworkResult.swift in Sources */,
 				75055DB822024E6700E19CB6 /* ViewConfiguration.swift in Sources */,
+				75055DE02202802000E19CB6 /* NetworkingManageable.swift in Sources */,
 				75055DB422024E0D00E19CB6 /* Coordinator.swift in Sources */,
 				75055DCA220258B600E19CB6 /* RepositoryTableViewCell.swift in Sources */,
 				75055DA02202447000E19CB6 /* Author.swift in Sources */,
 				75055DB222024E0100E19CB6 /* MainCoordinator.swift in Sources */,
+				75055DFA220282E100E19CB6 /* NetworkError.swift in Sources */,
 				75055DD72202613200E19CB6 /* BadgeView.swift in Sources */,
 				75055DC12202559A00E19CB6 /* UIViewController+Extensions.swift in Sources */,
 				75055DAF22024DCD00E19CB6 /* RepositoryDetailViewController.swift in Sources */,
 				75055DAC22024D9100E19CB6 /* RepositoriesViewController.swift in Sources */,
 				75055DC32202561200E19CB6 /* RepositoriesViewModel.swift in Sources */,
 				759BD900220207E500A7EA3D /* githubsample.xcdatamodeld in Sources */,
+				75055DDD22027FDA00E19CB6 /* NetworkManager.swift in Sources */,
 				75055DBC22024F0D00E19CB6 /* ViewModelConfigurable.swift in Sources */,
+				75055DF32202823100E19CB6 /* NetworkManagerAliases.swift in Sources */,
+				75055DE5220280F000E19CB6 /* NetworkMethod.swift in Sources */,
 				759BD8F8220207E500A7EA3D /* AppDelegate.swift in Sources */,
 				75055DBE22024F7C00E19CB6 /* Layoutable.swift in Sources */,
+				75055DF52202827A00E19CB6 /* ResponseNetworkError.swift in Sources */,
 				75055DD122025F7100E19CB6 /* AuthorView.swift in Sources */,
 				75055DD922026AEE00E19CB6 /* Reusable.swift in Sources */,
+				75055DE22202809500E19CB6 /* NetworkEndpoint.swift in Sources */,
+				75055DEF220281E000E19CB6 /* NetworkResponse.swift in Sources */,
 				75055DCC220258E800E19CB6 /* UITableViewCell+Extensions.swift in Sources */,
+				75055DFD2202837B00E19CB6 /* String+Extensions.swift in Sources */,
 				75055D9E2202437800E19CB6 /* Repository.swift in Sources */,
+				75055DED2202817B00E19CB6 /* NetworkResultable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

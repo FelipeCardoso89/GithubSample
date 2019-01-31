@@ -20,7 +20,20 @@ class RepositoriesViewModel {
             id: "bla",
             name: "Alamofire",
             stars: 123456,
-            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil))
+            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil)
+        ),
+        Repository(
+            id: "bla",
+            name: "Alamofire",
+            stars: 123456,
+            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil)
+        ),
+        Repository(
+            id: "bla",
+            name: "Alamofire",
+            stars: 123456,
+            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil)
+        ),
     ]
     
     var repositories: [Repository] {
