@@ -15,7 +15,13 @@ protocol RepositoriesViewModelDelegate {
 
 class RepositoriesViewModel {
     
-    private var loadedRepositories = [Repository]()
+    private var loadedRepositories: [Repository] = [
+        Repository(
+            id: "bla",
+            name: "Alamofire",
+            stars: 123456,
+            owner: Author(id: "bla", login:"Fodaum!!!", avatar: nil))
+    ]
     
     var repositories: [Repository] {
         return loadedRepositories

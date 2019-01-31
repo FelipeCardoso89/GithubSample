@@ -15,12 +15,18 @@ class RepositoriesViewController: UIViewController {
         return tableView
     }()
     
-    private var viewModel: ViewModel? {
+    private var viewModel: ViewModel? = RepositoriesViewModel() {
         didSet { self.update() }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        repositoriesTableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.reuseIdentifier)
+        repositoriesTableView.estimatedRowHeight = 80
+        repositoriesTableView.rowHeight = UITableView.automaticDimension
+        repositoriesTableView.delegate = self
+        repositoriesTableView.dataSource = self
+        
         buildViewHierarchy()
         setupConstraints()
         configureViews()
@@ -59,7 +65,21 @@ extension RepositoriesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell(forAutoLayout: ())
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: RepositoryTableViewCell.reuseIdentifier) as? RepositoryTableViewCell else {
+            return UITableViewCell(forAutoLayout: ())
+        }
+        
+        guard let repository = viewModel?.repositories[indexPath.row] else {
+            return cell
+        }
+        
+        cell.titleLabel.text = repository.name
+        cell.descriptionLabel.text = "bla bla"
+        cell.authorView.nameLabel.text = repository.owner.login
+        cell.badgeView.textLabel.text = String(repository.stars)
+        
+        return cell
     }
 }
 

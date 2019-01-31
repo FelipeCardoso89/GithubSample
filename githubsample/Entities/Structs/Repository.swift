@@ -9,7 +9,6 @@
 import Foundation
 
 struct Repository {
-    
     let id: String
     let name: String
     let stars: Int

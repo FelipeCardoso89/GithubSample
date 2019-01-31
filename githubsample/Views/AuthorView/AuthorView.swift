@@ -12,18 +12,39 @@ class AuthorView: UIView {
 
     lazy var avatarImageView: UIImageView = {
         let imageView = UIImageView(forAutoLayout: ())
-        imageView.backgroundColor = UIColor.orange
+        imageView.image = UIImage(named: "ProfileIcon")
+        imageView.contentMode = UIView.ContentMode.scaleAspectFit
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     lazy var nameLabel: UILabel = {
         let label = UILabel(forAutoLayout: ())
-        label.text = "Author Name"
         return label
     }()
     
-    func buildViewHierarchy() {
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
+        avatarImageView.layer.cornerRadius = (avatarImageView.frame.size.width / 2.0)
+        avatarImageView.layer.borderWidth = 1.0
+        avatarImageView.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        buildViewHierarchy()
+        setupConstraints()
+    }
+    
+    func buildViewHierarchy() {
+        addSubview(avatarImageView)
+        addSubview(nameLabel)
+    }
+    
+    func setupConstraints() {
+        setupAvatarImageViewConstraints()
+        setupNameLabelConstraints()
     }
 
 }
@@ -48,7 +69,7 @@ extension AuthorView {
             relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
-            multiplier: 1,
+            multiplier: 0.5,
             constant: 8
         )
         
@@ -58,7 +79,7 @@ extension AuthorView {
             relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.top,
-            multiplier: 1,
+            multiplier: 0.5,
             constant: 8
         )
         
@@ -72,7 +93,34 @@ extension AuthorView {
             constant: 0
         )
         
-        NSLayoutConstraint.activate([leftConstraint, bottomConstraint, centerYConstraint, topConstraint])
+        let heightConstraint = NSLayoutConstraint(
+            item: avatarImageView,
+            attribute: NSLayoutConstraint.Attribute.height,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: 28
+        )
+        
+        let widthtConstraint = NSLayoutConstraint(
+            item: avatarImageView,
+            attribute: NSLayoutConstraint.Attribute.width,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: 28
+        )
+        
+        NSLayoutConstraint.activate([
+            leftConstraint,
+            bottomConstraint,
+            centerYConstraint,
+            topConstraint,
+            widthtConstraint,
+            heightConstraint
+        ])
         
     }
     
@@ -82,7 +130,7 @@ extension AuthorView {
             item: nameLabel,
             attribute: NSLayoutConstraint.Attribute.left,
             relatedBy: NSLayoutConstraint.Relation.equal,
-            toItem: nameLabel,
+            toItem: avatarImageView,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
             constant: 16
@@ -90,12 +138,12 @@ extension AuthorView {
         
         let rightConstraint = NSLayoutConstraint(
             item: nameLabel,
-            attribute: NSLayoutConstraint.Attribute.left,
+            attribute: NSLayoutConstraint.Attribute.right,
             relatedBy: NSLayoutConstraint.Relation.equal,
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
-            constant: 8
+            constant: -8
         )
         
         let bottomConstraint = NSLayoutConstraint(
@@ -105,7 +153,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
             multiplier: 1,
-            constant: 8
+            constant: -8
         )
         
         let topConstraint = NSLayoutConstraint(
@@ -118,8 +166,12 @@ extension AuthorView {
             constant: 8
         )
         
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, topConstraint])
-        
+        NSLayoutConstraint.activate([
+            leftConstraint,
+            rightConstraint,
+            bottomConstraint,
+            topConstraint
+        ])
     }
     
 }

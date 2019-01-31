@@ -12,19 +12,31 @@ class BadgeView: UIView {
     
     lazy var iconImageView: UIImageView = {
         let imageView = UIImageView(forAutoLayout: ())
-        imageView.backgroundColor = UIColor.red
+        imageView.image = UIImage(named: "StarIcon")
         return imageView
     }()
     
     lazy var textLabel: UILabel = {
         let label = UILabel(forAutoLayout: ())
         label.text = "0000"
+        label.textAlignment = NSTextAlignment.right
         return label
     }()
+    
+    override func didMoveToSuperview() {
+        super.didMoveToSuperview()
+        buildViewHierarchy()
+        setupConstraints()
+    }
     
     func buildViewHierarchy() {
         addSubview(iconImageView)
         addSubview(textLabel)
+    }
+    
+    func setupConstraints() {
+        setupTextLabelConstraints()
+        setupIconImageViewConstraints()
     }
     
 }
@@ -49,7 +61,7 @@ extension BadgeView {
             relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
-            multiplier: 1,
+            multiplier: 0.5,
             constant: 8
         )
         
@@ -59,7 +71,7 @@ extension BadgeView {
             relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.top,
-            multiplier: 1,
+            multiplier: 0.5,
             constant: 8
         )
         
@@ -73,7 +85,34 @@ extension BadgeView {
             constant: 0
         )
         
-        NSLayoutConstraint.activate([leftConstraint, bottomConstraint, centerYConstraint, topConstraint])
+        let heightConstraint = NSLayoutConstraint(
+            item: iconImageView,
+            attribute: NSLayoutConstraint.Attribute.height,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: 20
+        )
+        
+        let widthtConstraint = NSLayoutConstraint(
+            item: iconImageView,
+            attribute: NSLayoutConstraint.Attribute.width,
+            relatedBy: NSLayoutConstraint.Relation.equal,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: 20
+        )
+        
+        NSLayoutConstraint.activate([
+            leftConstraint,
+            bottomConstraint,
+            topConstraint,
+            centerYConstraint,
+            heightConstraint,
+            widthtConstraint
+        ])
         
     }
     
@@ -86,17 +125,17 @@ extension BadgeView {
             toItem: iconImageView,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
-            constant: 16
+            constant: 8
         )
         
         let rightConstraint = NSLayoutConstraint(
             item: textLabel,
-            attribute: NSLayoutConstraint.Attribute.left,
+            attribute: NSLayoutConstraint.Attribute.right,
             relatedBy: NSLayoutConstraint.Relation.equal,
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
-            constant: 8
+            constant: -16
         )
 
         let bottomConstraint = NSLayoutConstraint(
@@ -106,7 +145,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
             multiplier: 1,
-            constant: 8
+            constant: -8
         )
         
         let topConstraint = NSLayoutConstraint(
@@ -119,7 +158,23 @@ extension BadgeView {
             constant: 8
         )
         
-        NSLayoutConstraint.activate([leftConstraint, rightConstraint, bottomConstraint, topConstraint])
+        let widthtConstraint = NSLayoutConstraint(
+            item: textLabel,
+            attribute: NSLayoutConstraint.Attribute.width,
+            relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: 20
+        )
+        
+        NSLayoutConstraint.activate([
+            leftConstraint,
+            rightConstraint,
+            bottomConstraint,
+            topConstraint,
+            widthtConstraint
+        ])
         
     }
     

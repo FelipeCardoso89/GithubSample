@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+extension UIView: Reusable {}
+
 extension UIView: ViewConfiguration {}
 
 extension UIView: Layoutable {}

@@ -9,4 +9,4 @@
 import Foundation
 import UIKit
 
-extension UITableViewCell: ViewConfiguration {}
+extension UITableViewCell {}

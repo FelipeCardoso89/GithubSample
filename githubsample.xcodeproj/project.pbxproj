@@ -26,6 +26,7 @@
 		75055DCC220258E800E19CB6 /* UITableViewCell+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DCB220258E800E19CB6 /* UITableViewCell+Extensions.swift */; };
 		75055DD122025F7100E19CB6 /* AuthorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD022025F7100E19CB6 /* AuthorView.swift */; };
 		75055DD72202613200E19CB6 /* BadgeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD62202613200E19CB6 /* BadgeView.swift */; };
+		75055DD922026AEE00E19CB6 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DD822026AEE00E19CB6 /* Reusable.swift */; };
 		759BD8F8220207E500A7EA3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8F7220207E500A7EA3D /* AppDelegate.swift */; };
 		759BD8FD220207E500A7EA3D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 759BD8FB220207E500A7EA3D /* Main.storyboard */; };
 		759BD900220207E500A7EA3D /* githubsample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 759BD8FE220207E500A7EA3D /* githubsample.xcdatamodeld */; };
@@ -80,6 +81,7 @@
 		75055DCB220258E800E19CB6 /* UITableViewCell+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Extensions.swift"; sourceTree = "<group>"; };
 		75055DD022025F7100E19CB6 /* AuthorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorView.swift; sourceTree = "<group>"; };
 		75055DD62202613200E19CB6 /* BadgeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BadgeView.swift; sourceTree = "<group>"; };
+		75055DD822026AEE00E19CB6 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		759BD8F4220207E500A7EA3D /* githubsample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = githubsample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		759BD8F7220207E500A7EA3D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		759BD8FC220207E500A7EA3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 				75055DB722024E6700E19CB6 /* ViewConfiguration.swift */,
 				75055DBB22024F0D00E19CB6 /* ViewModelConfigurable.swift */,
 				75055DBD22024F7C00E19CB6 /* Layoutable.swift */,
+				75055DD822026AEE00E19CB6 /* Reusable.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				759BD8F8220207E500A7EA3D /* AppDelegate.swift in Sources */,
 				75055DBE22024F7C00E19CB6 /* Layoutable.swift in Sources */,
 				75055DD122025F7100E19CB6 /* AuthorView.swift in Sources */,
+				75055DD922026AEE00E19CB6 /* Reusable.swift in Sources */,
 				75055DCC220258E800E19CB6 /* UITableViewCell+Extensions.swift in Sources */,
 				75055D9E2202437800E19CB6 /* Repository.swift in Sources */,
 			);
