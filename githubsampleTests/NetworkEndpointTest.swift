@@ -14,7 +14,8 @@ class NetworkEndpointTest: QuickSpec {
     
     override func spec() {
         
-        describe("", <#T##closure: QCKDSLEmptyBlock!##QCKDSLEmptyBlock!##() -> Void#>)
-        
+        describe("") {
+            
+        }
     }
 }
