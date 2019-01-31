@@ -1,6 +1,3 @@
-// 20190130235734
-// https://api.github.com/search/repositories?q=language:swift&sort=stars
-
 {
 "total_count": 514140,
 "incomplete_results": false,

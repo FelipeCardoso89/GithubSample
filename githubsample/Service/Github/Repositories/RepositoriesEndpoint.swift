@@ -9,7 +9,7 @@
 import Foundation
 
 enum RepositoriesEndpoint {
-    case repositories(language: String, sort: String)
+    case repositories(language: String, sort: String, page: Int)
 }
 
 extension RepositoriesEndpoint: NetworkEndpoint {
@@ -27,10 +27,11 @@ extension RepositoriesEndpoint: NetworkEndpoint {
     
     var task: NetworkTask {
         switch self {
-        case .repositories(let language, let sort):
+        case let .repositories(language, sort, page):
             return .requestParameters([
                 "q": "language:\(language)",
-                "sort": sort
+                "sort": sort,
+                "page": page
             ])
         }
     }

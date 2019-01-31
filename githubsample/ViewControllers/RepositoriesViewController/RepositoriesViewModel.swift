@@ -17,6 +17,7 @@ class RepositoriesViewModel {
     
     private var loadedRepositories: [Repository]?
     private var isLoading: Bool = false
+    private var currentPage: Int = 1
     
     var delegate: RepositoriesViewModelDelegate?
     
@@ -31,7 +32,7 @@ class RepositoriesViewModel {
     func fetchRepositories() {
         
         isLoading = true
-        RepositoriesService.shared.searchRepositories(from: "swift", sortedBy: "stars") { [weak self] (result) in
+        RepositoriesService.shared.searchRepositories(from: "swift", sortedBy: "stars", page: currentPage) { [weak self] (result) in
             
             guard let weakSelf = self else {
                 return
@@ -39,7 +40,7 @@ class RepositoriesViewModel {
             
             switch(result){
             case let .success(repositories):
-                weakSelf.loadedRepositories = repositories
+                weakSelf.loadedRepositories?.append(contentsOf: repositories)
                 weakSelf.delegate?.didFetchRepositories()
                 
             case .failure(_):

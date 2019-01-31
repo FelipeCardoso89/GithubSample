@@ -20,9 +20,9 @@ public class RepositoriesService {
         self.manager = manager
     }
     
-    func searchRepositories(from language: String, sortedBy sort: String, completion: @escaping ResponseRepositoriesCompletionResult) {
+    func searchRepositories(from language: String, sortedBy sort: String, page: Int, completion: @escaping ResponseRepositoriesCompletionResult) {
         
-        manager.request(endpoint: RepositoriesEndpoint.repositories(language: language, sort: sort), forceRequest: false) { (result) in
+        manager.request(endpoint: RepositoriesEndpoint.repositories(language: language, sort: sort, page: page), forceRequest: false) { (result) in
             switch(result) {
             case let .success(response):
                 
