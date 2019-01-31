@@ -20,29 +20,62 @@ public class RepositoriesService {
         self.manager = manager
     }
     
-    func searchRepositories(from language: String, sortedBy sort: String, page: Int, completion: @escaping ResponseRepositoriesCompletionResult) {
+}
+
+extension RepositoriesService: RepositoriesServiceable {
+    
+    func searchRepositories(from language: String, sortedBy sort: String, page: Int, completion: @escaping ResponseRepositoriesSearchCompletionResult) {
         
         manager.request(endpoint: RepositoriesEndpoint.repositories(language: language, sort: sort, page: page), forceRequest: false) { (result) in
+           
             switch(result) {
             case let .success(response):
                 
                 guard let data = response.data else {
-                    completion(ResponseRepositoriesResult(value: []))
+                    completion(ResponseRepositoriesSearchResult(error: ResponseNetworkError.unknow))
                     return
                 }
                 
-                guard let searchResult = try? JSONDecoder().decode(RepositorySearch.self, from: data) else {
-                    completion(ResponseRepositoriesResult(value: []))
+                guard var searchResult = try? JSONDecoder().decode(RepositorySearch.self, from: data) else {
+                    completion(ResponseRepositoriesSearchResult(error: ResponseNetworkError.unknow))
                     return
                 }
                 
-                completion(ResponseRepositoriesResult(value: searchResult.repositories))
+                if let headers = response.headers {
+                    searchResult.totalPages = self.retriveTotalNumberOfPages(from: headers)
+                }
+            
+                completion(ResponseRepositoriesSearchResult(value: searchResult))
                 
             case .failure(_):
-                completion(ResponseRepositoriesResult(error: ResponseNetworkError.unknow))
+                completion(ResponseRepositoriesSearchResult(error: ResponseNetworkError.unknow))
             }
             
             return
         }
     }
+    
+    private func retriveTotalNumberOfPages(from headers: [AnyHashable: Any]) -> Int? {
+        
+        guard let links = headers["Link"] as? String else {
+            return nil
+        }
+        
+        let lastLinkComponents = links.components(separatedBy: ",")[1]
+        let lastLink = lastLinkComponents.components(separatedBy: ";")[0]
+        
+        guard
+            let link = lastLink.slice(from: "<", to: ">"),
+            let url = URLComponents(string: link),
+            let queryItems = url.queryItems,
+            let item = queryItems.first(where: { $0.name.elementsEqual("page") }),
+            let value = item.value,
+            let pages = Int(value)
+        else {
+            return nil
+        }
+        
+        return pages
+    }
+    
 }

@@ -13,6 +13,7 @@ class RepositoryTableViewCell: UITableViewCell {
     lazy var titleLabel: UILabel = {
         let label = UILabel(forAutoLayout: ())
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
+        label.numberOfLines = 0
         return label
     }()
     

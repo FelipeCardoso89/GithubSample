@@ -23,8 +23,13 @@ class RepositoriesViewController: UIViewController {
         return tableView
     }()
     
-    private var viewModel: ViewModel? = RepositoriesViewModel() {
+    private var viewModel: ViewModel? {
         didSet { self.update() }
+    }
+    
+    convenience init(viewModel: RepositoriesViewModel) {
+        self.init()
+        self.viewModel = viewModel
     }
     
     override func viewDidLoad() {

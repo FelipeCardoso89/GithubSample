@@ -15,9 +15,12 @@ protocol RepositoriesViewModelDelegate {
 
 class RepositoriesViewModel {
     
+    private let service: RepositoriesServiceable
+    
     private var loadedRepositories: [Repository]?
     private var isLoading: Bool = false
     private var currentPage: Int = 1
+    private var totalPages: Int = 1
     
     var delegate: RepositoriesViewModelDelegate?
     
@@ -29,18 +32,45 @@ class RepositoriesViewModel {
         return loadedRepositories
     }
     
+    init(service: RepositoriesServiceable) {
+        self.service = service
+    }
+    
     func fetchRepositories() {
+        fetchRepositories(at: 0)
+    }
+    
+    func fetchNextPage() {
+        
+        guard currentPage < totalPages else {
+            return
+        }
+        
+        fetchRepositories(at: currentPage + 1)
+    }
+    
+    func fetchPreviousPage() {
+        
+        guard currentPage > 0 else {
+            return
+        }
+        
+        fetchRepositories(at: currentPage - 1)
+    }
+    
+    func fetchRepositories(at page: Int) {
         
         isLoading = true
-        RepositoriesService.shared.searchRepositories(from: "swift", sortedBy: "stars", page: currentPage) { [weak self] (result) in
+        service.searchRepositories(from: "swift", sortedBy: "stars", page: page) { [weak self] (result) in
             
             guard let weakSelf = self else {
                 return
             }
             
             switch(result){
-            case let .success(repositories):
-                weakSelf.loadedRepositories?.append(contentsOf: repositories)
+            case let .success(searchResult):
+                weakSelf.totalPages = searchResult.totalPages ?? 1
+                weakSelf.loadedRepositories = searchResult.repositories
                 weakSelf.delegate?.didFetchRepositories()
                 
             case .failure(_):
@@ -48,8 +78,7 @@ class RepositoriesViewModel {
             }
             
             weakSelf.isLoading = false
+            weakSelf.currentPage = page
         }
-        
     }
-    
 }

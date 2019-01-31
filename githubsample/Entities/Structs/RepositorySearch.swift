@@ -12,6 +12,14 @@ struct RepositorySearch {
     let totalCounts: Int
     let incompleteResults: Bool
     let repositories: [Repository]
+    var totalPages: Int?
+    
+    init(totalCounts: Int, incompleteResults: Bool, repositories: [Repository]) {
+        self.totalCounts = totalCounts
+        self.incompleteResults = incompleteResults
+        self.repositories = repositories
+        self.totalPages = nil
+    }
 }
 
 extension RepositorySearch: Codable {

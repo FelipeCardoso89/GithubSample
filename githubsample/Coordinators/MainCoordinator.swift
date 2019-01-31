@@ -14,7 +14,8 @@ class MainCoordinator: Coordinator {
     private let window: UIWindow
 
     private lazy var repositoriesViewController: RepositoriesViewController = {
-        let viewController = RepositoriesViewController()
+        let viewModel = RepositoriesViewModel(service: RepositoriesService.shared)
+        let viewController = RepositoriesViewController(viewModel: viewModel)
         viewController.view.backgroundColor = UIColor.blue
         return viewController
     }()
