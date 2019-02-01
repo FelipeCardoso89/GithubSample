@@ -9,13 +9,41 @@
 import XCTest
 import Quick
 import Nimble
+@testable import githubsample
 
 class NetworkEndpointTest: QuickSpec {
     
     override func spec() {
         
-        describe("") {
+        describe("Endpoints Tests") {
             
+            it("Can create the first endpoint") {
+                let endpoint1 = MockedEndpoint.endpoint1
+                let url = endpoint1.createURL()
+                expect(url).toNot(beNil())
+                expect(url?.absoluteString).to(equal("https://api.github.com/search/repositories"))
+            }
+            
+            it("Can create the second endpoint") {
+                let endpoint2 = MockedEndpoint.endpoint2
+                let url = endpoint2.createURL()
+                expect(url).toNot(beNil())
+                expect(url?.absoluteString).to(equal("https://api.github.com/search/repositories"))
+            }
+            
+            it("Can create the third endpoint") {
+                let endpoint3 = MockedEndpoint.endpoint3
+                let url = endpoint3.createURL()
+                expect(url).toNot(beNil())
+                expect(url?.absoluteString).to(equal("https://api.github.com/search/repositories%3Fparam2=value2&param1=value1"))
+            }
+            
+            it("Can create the fourth endpoin") {
+                let endpoint4 = MockedEndpoint.endpoint4
+                let url = endpoint4.createURL()
+                expect(url).toNot(beNil())
+                expect(url?.absoluteString).to(equal("https://api.github.com/search/repositories"))
+            }
         }
     }
 }
