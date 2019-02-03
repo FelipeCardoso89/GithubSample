@@ -12,7 +12,7 @@ import UIKit
 extension UIImageView {
     
     func loadImage(from url: URL, placeholder: UIImage?) {
-        
+    
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             DispatchQueue.main.async {
                 

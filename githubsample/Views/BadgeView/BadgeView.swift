@@ -52,7 +52,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.left,
             multiplier: 1,
-            constant: 8
+            constant: 0
         )
         
         let bottomConstraint = NSLayoutConstraint(
@@ -62,7 +62,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
             multiplier: 0.5,
-            constant: 8
+            constant: 0
         )
         
         let topConstraint = NSLayoutConstraint(
@@ -72,7 +72,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.top,
             multiplier: 0.5,
-            constant: 8
+            constant: 0
         )
         
         let centerYConstraint = NSLayoutConstraint(
@@ -135,7 +135,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
-            constant: -16
+            constant: 0
         )
 
         let bottomConstraint = NSLayoutConstraint(
@@ -145,7 +145,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
             multiplier: 1,
-            constant: -8
+            constant: 0
         )
         
         let topConstraint = NSLayoutConstraint(
@@ -155,7 +155,7 @@ extension BadgeView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.top,
             multiplier: 1,
-            constant: 8
+            constant: 0
         )
         
         let widthtConstraint = NSLayoutConstraint(

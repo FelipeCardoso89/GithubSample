@@ -61,10 +61,19 @@ extension RepositoriesService: RepositoriesServiceable {
             return nil
         }
         
-        let lastLinkComponents = links.components(separatedBy: ",")[1]
-        let lastLink = lastLinkComponents.components(separatedBy: ";")[0]
+        let availableLinks = links.components(separatedBy: ",")
         
+        var lastLinkComponents: String = ""
+
+        switch availableLinks.count {
+        case 4:
+            lastLinkComponents = availableLinks[2]
+        default:
+            lastLinkComponents = availableLinks.last ?? ""
+        }
+    
         guard
+            let lastLink = lastLinkComponents.components(separatedBy: ";").first,
             let link = lastLink.slice(from: "<", to: ">"),
             let url = URLComponents(string: link),
             let queryItems = url.queryItems,

@@ -15,11 +15,14 @@ class RepositoriesViewController: UIViewController {
         control.addTarget(self, action: #selector(fetchRepositories), for: .valueChanged)
         return control
     }()
-    
+
     private lazy var repositoriesTableView: UITableView = {
+        
         let tableView = UITableView(forAutoLayout: ())
         tableView.refreshControl = refreshControl
         tableView.tableFooterView = UIView()
+        tableView.estimatedRowHeight = 80
+        tableView.rowHeight = UITableView.automaticDimension
         return tableView
     }()
     
@@ -47,7 +50,7 @@ class RepositoriesViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        fetchRepositories()
+        refreshControl.beginRefreshingManually()
     }
     
     func setupConstraints() {
@@ -63,12 +66,11 @@ class RepositoriesViewController: UIViewController {
     }
     
     @objc func fetchRepositories() {
-        
-        guard !(viewModel?.loading ?? true) else {
-            return
-        }
-        
-        viewModel?.fetchRepositories()
+        viewModel?.fethFirstPage()
+    }
+    
+    @objc func loadNextPage() {
+        viewModel?.fetchNextPage()
     }
 }
 
@@ -128,6 +130,34 @@ extension RepositoriesViewController: UITableViewDelegate {
     }
 }
 
+extension RepositoriesViewController: UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        guard let viewModel = self.viewModel else {
+            return
+        }
+        
+        guard didPushBeyondLimitToLoadNextPage(for: scrollView), viewModel.canLoadNextPage else {
+            return
+        }
+        
+        viewModel.fetchNextPage()
+    }
+    
+    private func didPushBeyondLimitToLoadNextPage(for scrollView: UIScrollView) -> Bool {
+        
+         let contentOffsetY: CGFloat = (
+            scrollView.contentSize.height -
+            (scrollView.frame.size.height + scrollView.contentOffset.y)
+        )
+        
+        return (contentOffsetY < 300)
+    }
+    
+
+}
+
 extension RepositoriesViewController: RepositoriesViewModelDelegate {
     
     func didFetchRepositories() {
@@ -136,6 +166,19 @@ extension RepositoriesViewController: RepositoriesViewModelDelegate {
     
     func didFailToFetchRepositories(with error: Error) {
         
+        DispatchQueue.main.async {
+            
+            let alertController = UIAlertController(
+                title: "Algo deu errado!",
+                message: error.localizedDescription,
+                preferredStyle: .alert
+            )
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            //I could send it to de coordinator to present a custom error screen.
+            self.present(alertController, animated: true, completion: nil)
+        }
     }
 }
 
@@ -144,8 +187,6 @@ extension RepositoriesViewController {
     
     private func setupRepositoriesTableView() {
         repositoriesTableView.register(RepositoryTableViewCell.self, forCellReuseIdentifier: RepositoryTableViewCell.reuseIdentifier)
-        repositoriesTableView.estimatedRowHeight = 80
-        repositoriesTableView.rowHeight = UITableView.automaticDimension
         repositoriesTableView.delegate = self
         repositoriesTableView.dataSource = self
     }
@@ -174,10 +215,10 @@ extension RepositoriesViewController {
         
         let bottomConstraint = NSLayoutConstraint(
             item: repositoriesTableView,
-            attribute: NSLayoutConstraint.Attribute.bottom,
+            attribute: NSLayoutConstraint.Attribute.bottomMargin,
             relatedBy: NSLayoutConstraint.Relation.equal,
             toItem: view,
-            attribute: NSLayoutConstraint.Attribute.bottom,
+            attribute: NSLayoutConstraint.Attribute.bottomMargin,
             multiplier: 1,
             constant: 0
         )

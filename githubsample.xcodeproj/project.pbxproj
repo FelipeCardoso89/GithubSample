@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1B00D525513CF81D818B39C2 /* Pods_githubsample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2683088C221595BC18C43B69 /* Pods_githubsample.framework */; };
+		3E06EC1B2207A11B00D8E065 /* UIRefreshControl+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E06EC1A2207A11B00D8E065 /* UIRefreshControl+Extensions.swift */; };
 		75055D9E2202437800E19CB6 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055D9D2202437800E19CB6 /* Repository.swift */; };
 		75055DA02202447000E19CB6 /* Author.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055D9F2202447000E19CB6 /* Author.swift */; };
 		75055DA422024C0000E19CB6 /* ModelsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75055DA322024C0000E19CB6 /* ModelsTests.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		2293C2B6B069A85FCD14F794 /* Pods-githubsampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsampleTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-githubsampleTests/Pods-githubsampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2683088C221595BC18C43B69 /* Pods_githubsample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githubsample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3E06EC1A2207A11B00D8E065 /* UIRefreshControl+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIRefreshControl+Extensions.swift"; sourceTree = "<group>"; };
 		42FBDB0FE92EA822B844EEEE /* Pods_githubsampleUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githubsampleUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		45C8528BE75C3A70F359829D /* Pods_githubsampleTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_githubsampleTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		596A45472AFB45DCB9C018FE /* Pods-githubsampleUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-githubsampleUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-githubsampleUITests/Pods-githubsampleUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,13 +206,6 @@
 			path = Structs;
 			sourceTree = "<group>";
 		};
-		75055D9C2202434A00E19CB6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
 		75055DA922024D0200E19CB6 /* Mock */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +260,7 @@
 				75055DC4220256A400E19CB6 /* UIView+Extensions.swift */,
 				75055DCB220258E800E19CB6 /* UITableViewCell+Extensions.swift */,
 				75055E0722029A3600E19CB6 /* UIImageView+Extensions.swift */,
+				3E06EC1A2207A11B00D8E065 /* UIRefreshControl+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -462,7 +458,6 @@
 		75065E352202200E00C15581 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				75055D9C2202434A00E19CB6 /* Models */,
 				75055D9B2202433A00E19CB6 /* Structs */,
 			);
 			path = Entities;
@@ -812,6 +807,7 @@
 				75055DFD2202837B00E19CB6 /* String+Extensions.swift in Sources */,
 				75055D9E2202437800E19CB6 /* Repository.swift in Sources */,
 				75055DED2202817B00E19CB6 /* NetworkResultable.swift in Sources */,
+				3E06EC1B2207A11B00D8E065 /* UIRefreshControl+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1027,7 +1023,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2293C2B6B069A85FCD14F794 /* Pods-githubsampleTests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
@@ -1049,7 +1045,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5D066717FFAC51A84BFFBA96 /* Pods-githubsampleTests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
@@ -1071,7 +1067,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 596A45472AFB45DCB9C018FE /* Pods-githubsampleUITests.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = githubsampleUITests/Info.plist;
@@ -1092,7 +1088,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5CF76121F95DE7707BC48E83 /* Pods-githubsampleUITests.release.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 6S2QHFGTQK;
 				INFOPLIST_FILE = githubsampleUITests/Info.plist;

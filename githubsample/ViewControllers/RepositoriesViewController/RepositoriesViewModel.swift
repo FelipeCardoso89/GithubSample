@@ -19,7 +19,7 @@ class RepositoriesViewModel {
     
     private var loadedRepositories: [Repository]?
     private var isLoading: Bool = false
-    private var currentPage: Int = 1
+    private var currentPage: Int = 0
     private var totalPages: Int = 1
     
     var delegate: RepositoriesViewModelDelegate?
@@ -32,33 +32,35 @@ class RepositoriesViewModel {
         return loadedRepositories
     }
     
+    var canLoadNextPage: Bool {
+        return (currentPage > 0) && (currentPage < totalPages) && !loading
+    }
+    
+    var canLoadPreviousPage: Bool {
+        return (currentPage > 0) && !loading
+    }
+    
     init(service: RepositoriesServiceable) {
         self.service = service
     }
     
-    func fetchRepositories() {
-        fetchRepositories(at: 0)
+    func fethFirstPage() {
+        fetchRepositories()
     }
     
     func fetchNextPage() {
-        
-        guard currentPage < totalPages else {
-            return
-        }
-        
         fetchRepositories(at: currentPage + 1)
     }
     
     func fetchPreviousPage() {
-        
-        guard currentPage > 0 else {
-            return
-        }
-        
         fetchRepositories(at: currentPage - 1)
     }
     
-    func fetchRepositories(at page: Int) {
+    private func fetchRepositories(at page: Int = 1) {
+        
+        guard !loading else {
+            return
+        }
         
         isLoading = true
         service.searchRepositories(from: "swift", sortedBy: "stars", page: page) { [weak self] (result) in
@@ -69,16 +71,27 @@ class RepositoriesViewModel {
             
             switch(result){
             case let .success(searchResult):
+                weakSelf.currentPage = page
                 weakSelf.totalPages = searchResult.totalPages ?? 1
-                weakSelf.loadedRepositories = searchResult.repositories
+                
+                switch page {
+                case 1:
+                    weakSelf.loadedRepositories = searchResult.repositories
+                default:
+                    if (weakSelf.loadedRepositories != nil) {
+                        weakSelf.loadedRepositories?.append(contentsOf: searchResult.repositories)
+                    } else {
+                        weakSelf.loadedRepositories = searchResult.repositories
+                    }
+                }
+        
                 weakSelf.delegate?.didFetchRepositories()
                 
-            case .failure(_):
-                weakSelf.loadedRepositories = nil
+            case let .failure(error):
+                weakSelf.delegate?.didFailToFetchRepositories(with: error)
             }
             
             weakSelf.isLoading = false
-            weakSelf.currentPage = page
         }
     }
 }

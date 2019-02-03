@@ -59,7 +59,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.left,
             multiplier: 1,
-            constant: 8
+            constant: 0
         )
         
         let bottomConstraint = NSLayoutConstraint(
@@ -69,7 +69,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
             multiplier: 0.5,
-            constant: 8
+            constant: 0
         )
         
         let topConstraint = NSLayoutConstraint(
@@ -79,7 +79,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.top,
             multiplier: 0.5,
-            constant: 8
+            constant: 0
         )
         
         let centerYConstraint = NSLayoutConstraint(
@@ -132,7 +132,7 @@ extension AuthorView {
             toItem: avatarImageView,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
-            constant: 16
+            constant: 8
         )
         
         let rightConstraint = NSLayoutConstraint(
@@ -142,7 +142,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.right,
             multiplier: 1,
-            constant: -8
+            constant: 0
         )
         
         let bottomConstraint = NSLayoutConstraint(
@@ -152,7 +152,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.bottom,
             multiplier: 1,
-            constant: -8
+            constant: 0
         )
         
         let topConstraint = NSLayoutConstraint(
@@ -162,7 +162,7 @@ extension AuthorView {
             toItem: self,
             attribute: NSLayoutConstraint.Attribute.top,
             multiplier: 1,
-            constant: 8
+            constant: 0
         )
         
         NSLayoutConstraint.activate([

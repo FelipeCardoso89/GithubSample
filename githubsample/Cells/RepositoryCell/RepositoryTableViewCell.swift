@@ -97,7 +97,22 @@ extension RepositoryTableViewCell {
             constant: -8
         )
         
-        NSLayoutConstraint.activate([leftConstraint, bottomConstraint, topConstraint])
+        let widthConstraint = NSLayoutConstraint(
+            item: titleLabel,
+            attribute: NSLayoutConstraint.Attribute.width,
+            relatedBy: NSLayoutConstraint.Relation.greaterThanOrEqual,
+            toItem: nil,
+            attribute: NSLayoutConstraint.Attribute.notAnAttribute,
+            multiplier: 1,
+            constant: 10
+        )
+        
+        NSLayoutConstraint.activate([
+            widthConstraint,
+            leftConstraint,
+            bottomConstraint,
+            topConstraint
+        ])
         
     }
     
@@ -189,8 +204,8 @@ extension RepositoryTableViewCell {
             relatedBy: NSLayoutConstraint.Relation.lessThanOrEqual,
             toItem: nil,
             attribute: NSLayoutConstraint.Attribute.notAnAttribute,
-            multiplier: 1,
-            constant: 120
+            multiplier: 0.1,
+            constant: 90
         )
         
         NSLayoutConstraint.activate([
