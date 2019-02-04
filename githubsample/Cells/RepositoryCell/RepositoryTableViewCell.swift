@@ -14,6 +14,7 @@ class RepositoryTableViewCell: UITableViewCell {
         let label = UILabel(forAutoLayout: ())
         label.font = UIFont.boldSystemFont(ofSize: 24.0)
         label.numberOfLines = 0
+        label.accessibilityIdentifier = "title_label"
         return label
     }()
     

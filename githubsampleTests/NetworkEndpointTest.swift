@@ -35,7 +35,7 @@ class NetworkEndpointTest: QuickSpec {
                 let endpoint3 = MockedEndpoint.endpoint3
                 let url = endpoint3.createURL()
                 expect(url).toNot(beNil())
-                expect(url?.absoluteString).to(equal("https://api.github.com/search/repositories%3Fparam2=value2&param1=value1"))
+                expect(url?.absoluteString).to(equal("https://api.github.com/search/repositories%3Fparam1=value1"))
             }
             
             it("Can create the fourth endpoin") {

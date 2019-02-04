@@ -23,6 +23,7 @@ class RepositoriesViewController: UIViewController {
         tableView.tableFooterView = UIView()
         tableView.estimatedRowHeight = 80
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.accessibilityIdentifier = "repositories_table_view"
         return tableView
     }()
     

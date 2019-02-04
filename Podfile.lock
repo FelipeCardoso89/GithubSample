@@ -1,20 +1,26 @@
 PODS:
+  - KIF (3.7.4):
+    - KIF/Core (= 3.7.4)
+  - KIF/Core (3.7.4)
   - Nimble (7.3.3)
   - Quick (1.3.4)
 
 DEPENDENCIES:
+  - KIF
   - Nimble
   - Quick
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - KIF
     - Nimble
     - Quick
 
 SPEC CHECKSUMS:
+  KIF: f3d01c109ee9d1cfe6b0f2bb2aa278e807e971e2
   Nimble: 3b434b1e7d0a92603a13550a82880b0d952f518e
   Quick: f4f7f063c524394c73ed93ac70983c609805d481
 
-PODFILE CHECKSUM: e0668597175d0bed39d9e0107faac0010a6dcad9
+PODFILE CHECKSUM: 3dd8ac727846bae952125738c37e34b86e7d7c58
 
 COCOAPODS: 1.5.3

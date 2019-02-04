@@ -11,6 +11,7 @@ target 'githubsample' do
   def tests_pods
     pod 'Quick'
     pod 'Nimble'
+    pod 'KIF', :configurations => ['Debug']
   end
 
   target 'githubsampleTests' do
@@ -22,6 +23,7 @@ target 'githubsample' do
   target 'githubsampleUITests' do
     inherit! :search_paths
     # Pods for testing
+    tests_pods
   end
 
 end

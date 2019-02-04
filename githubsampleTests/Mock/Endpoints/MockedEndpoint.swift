@@ -35,9 +35,9 @@ extension MockedEndpoint: NetworkEndpoint {
         case .endpoint1, .endpoint4:
             return .requestPlain
         case .endpoint2:
-            return .requestParameters(["param1": "value1", "param2": "value2"])
+            return .requestParameters(["param1": "value1"])
         case .endpoint3:
-            return .requestCompositeBodyData(data: Data(), ["param1": "value1", "param2": "value2"])
+            return .requestCompositeBodyData(data: Data(), ["param1": "value1"])
         }
     }
     
